@@ -4,7 +4,6 @@ f=0
 check()
 {
 	f=0
-	pattern=$2
 	if [[ $1 =~ $pattern ]]
 	then
 		echo "Valid $3 $4"
@@ -15,6 +14,22 @@ check()
 		f=0
 		echo ""
 		echo "Enter $3 $4 again :"
+	fi
+}
+number()
+{
+	pattern="^[1-9]{1}[0-9]{1}[[:space:]]{1}[1-9]{1}[0-9]{9}"
+	read input
+	if [[ $input =~ $pattern ]]
+	then
+		echo "Valid Mobile Number"
+		f=1
+		echo ""
+	else
+		echo "Invalid Mobile Number"
+		f=0
+		echo ""
+		echo "Enter Mobile Number again :"
 	fi
 }
 loop()
@@ -39,6 +54,15 @@ echo "Enter Mail :"
 loop check $pattern Email
 email=$input
 
+f=0
+echo "Enter Number :"
+while [ $f -eq 0 ]
+do
+	number
+done
+number1=$input
+
 echo "First Name : $fname"
 echo "Last Name  : $lname"
 echo "Email      : $email"
+echo "Number     : $number1"
