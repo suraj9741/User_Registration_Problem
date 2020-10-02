@@ -58,11 +58,11 @@ echo "Enter Number :"
 while [ $f -eq 0 ]
 do
 	number
-	#f=1
+#	f=1
 done
 number1=$input
 f=0
-pattern="^[A-Za-z]{8,}$"
+pattern="^[A-Za-z0-9]{7,}[0-9]{1,}[A-Za-z0-9]*$"
 echo "Enter Password :"
 loop check $pattern Password
 password=$input
