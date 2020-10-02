@@ -53,16 +53,21 @@ f=0
 echo "Enter Mail :"
 loop check $pattern Email
 email=$input
-
 f=0
 echo "Enter Number :"
 while [ $f -eq 0 ]
 do
 	number
+	#f=1
 done
 number1=$input
-
+f=0
+pattern="^[a-zA-Z]{8,}$"
+echo "Enter Password :"
+loop check $pattern Password
+password=$input
 echo "First Name : $fname"
 echo "Last Name  : $lname"
 echo "Email      : $email"
 echo "Number     : $number1"
+echo "Password   : $password"
