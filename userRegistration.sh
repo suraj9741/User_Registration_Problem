@@ -62,7 +62,7 @@ do
 done
 number1=$input
 f=0
-pattern="^[a-zA-Z]{8,}$"
+pattern="^[A-Za-z]{8,}$"
 echo "Enter Password :"
 loop check $pattern Password
 password=$input
