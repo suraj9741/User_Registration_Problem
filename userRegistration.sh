@@ -18,7 +18,7 @@ check()
 }
 number()
 {
-	pattern="^[1-9]{1}[0-9]{1}[[:space:]]{1}[1-9]{1}[0-9]{9}"
+	pattern="^[9]{1}[1]{1}[[:space:]]{1}[1-9]{1}[0-9]{9}"
 	read input
 	if [[ $input =~ $pattern ]]
 	then
