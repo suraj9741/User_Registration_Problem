@@ -18,7 +18,7 @@ check()
 }
 number()
 {
-	pattern="^[1-9]{1}[0-9]{1}[[:space:]]{1}[1-9]{1}[0-9]{9}"
+	pattern="^[9]{1}[1]{1}[[:space:]]{1}[1-9]{1}[0-9]{9}"
 	read input
 	if [[ $input =~ $pattern ]]
 	then
@@ -62,10 +62,28 @@ do
 done
 number1=$input
 f=0
-pattern="^[A-Za-z0-9]{7,}[0-9]{1,}[A-Za-z0-9]*$"
-echo "Enter Password :"
-loop check $pattern Password
-password=$input
+while [ $f -eq 0 ]
+do
+	echo "Enter You password"
+	read password
+	count=${#password}
+	if [[ $count -gt 8 ]]
+	then
+		if [[ $(echo "$password" | awk '/[a-z]/ && /[A-Z]/ && /[0-9]/ && /[[:punct:]]/') ]]
+		then
+			echo "Your Password is valid"
+			f=1
+		else
+			echo "Your password not meet all requirements"
+			echo ""
+			f=0
+		fi
+	else
+		echo "your password is invalid is must 8 char"
+		echo ""
+		f=0
+	fi
+done
 echo "First Name : $fname"
 echo "Last Name  : $lname"
 echo "Email      : $email"
